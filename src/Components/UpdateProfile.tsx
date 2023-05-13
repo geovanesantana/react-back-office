@@ -56,83 +56,76 @@ export default function UpdateProfile() {
               src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K"
               alt="react back-office logo"
             />
-            <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-700">
+            <h1 className="mt-6 text-xl font-bold leading-tight text-center tracking-tight text-gray-900 md:text-2xl dark:text-white">
               Update Profile
-            </h2>
+            </h1>
           </div>
           <MessageCard message={error} type={ETypes.DANGER} visible={!!error} />
-          <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-            <input type="hidden" name="remember" defaultValue="true" />
-            <div className="-space-y-px rounded-md shadow-sm">
-              <div>
-                <label htmlFor="email-address" className="sr-only">
-                  Email address
-                </label>
-                <input
-                  id="email-address"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  ref={emailRef}
-                  defaultValue={currentUser.email}
-                  required
-                  className="relative block w-full appearance-none rounded-none rounded-t-md rounded-b-md border border-gray-300 px-3 py-2 text-gray-700 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                  placeholder="Email address"
-                />
-              </div>
-            </div>
-            <div className="-space-y-px rounded-md shadow-sm">
-              <h1 className="py-1 text-sm text-gray-500 flex items-center ">
-                <AiFillExclamationCircle className="mr-1" /> Leave blank to keep
-                the same
-              </h1>
-              <div>
-                <label className="sr-only">Password</label>
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  ref={passwordRef}
-                  className="relative block w-full appearance-none rounded-none rounded-t-md  border border-gray-300 px-3 py-2 text-gray-700 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                  placeholder="Password"
-                />
-              </div>
-              <div>
-                <label className="sr-only">Confirm Password</label>
-                <input
-                  id="confirm-password"
-                  name="confirm-password"
-                  type="password"
-                  ref={passwordConfirmRef}
-                  className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-700 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                  placeholder="Confirm Password"
-                />
-              </div>
+          <form className="space-y-4" onSubmit={handleSubmit}>
+            <div>
+              <label
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                htmlFor="email-address"
+              >
+                Email
+              </label>
+              <input
+                id="email-address"
+                name="email"
+                type="email"
+                autoComplete="email"
+                ref={emailRef}
+                defaultValue={currentUser.email}
+                required
+                className="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-bg-blue-700 focus:border-bg-blue-700 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Email address"
+              />
             </div>
 
             <div>
-              <button
-                type="submit"
-                disabled={loading}
-                className="group relative transition-colors flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              <h3 className="py-1 text-sm text-gray-500 flex items-center ">
+                <AiFillExclamationCircle className="mr-1" />
+                Leave blank to keep the same
+              </h3>
+              <label
+                htmlFor="password"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
-                <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-                  <LockClosedIcon
-                    className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
-                    aria-hidden="true"
-                  />
-                </span>
-                Update
-              </button>
+                Password
+              </label>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                ref={passwordRef}
+                className="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-bg-blue-700 focus:border-bg-blue-700 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Password"
+              />
             </div>
-            <div className="text-sm text-center">
-              <Link
-                className="font-medium text-indigo-600 hover:text-indigo-500"
-                to="/"
+            <div className="pb-2">
+              <label
+                htmlFor="confirm-password"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
-                Cancel
-              </Link>
+                Confirm Password
+              </label>
+              <input
+                id="confirm-password"
+                name="confirm-password"
+                type="password"
+                ref={passwordConfirmRef}
+                className="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-bg-blue-700 focus:border-bg-blue-700 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Confirm Password"
+              />
             </div>
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full text-white bg-black hover:bg-black/80 transition-all duration-200 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-700 dark:hover:bg-blue-800 dark:focus:ring-blue-800"
+            >
+              Update
+            </button>
           </form>
         </div>
       </div>
