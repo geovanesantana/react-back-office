@@ -5,7 +5,6 @@ import Dashboard from './Dashboard'
 import Login from './Login'
 import PrivateRoutes from './PrivateRoutes'
 import UpdateProfile from './UpdateProfile'
-import Users from './Users'
 import { ToastProvider } from '../contexts/ToastContext'
 import { ApiProvider } from '../contexts/ApiContext'
 import 'react-toastify/dist/ReactToastify.min.css'
@@ -20,7 +19,6 @@ function App() {
           <Route element={<PrivateRoutes />}>
             <Route element={<Dashboard />} path="/" />
             <Route path="/update-profile" element={<UpdateProfile />} />
-            <Route path="Users" element={<Users />} />
           </Route>
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />

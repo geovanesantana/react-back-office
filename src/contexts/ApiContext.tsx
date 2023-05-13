@@ -20,17 +20,6 @@ export function ApiProvider({ children }: IApiProviderProps): JSX.Element {
   }
   const api = axios.create(axiosConfig)
 
-  api.interceptors.request.use(async (config: any) => {
-    if (config.url != '/users/login') {
-      const token = await getCurrentUserToken()
-      if (config?.headers && token) {
-        config.headers.Authorization = `${token}`
-      }
-    }
-
-    return config
-  })
-
   const value = {
     api,
   }
