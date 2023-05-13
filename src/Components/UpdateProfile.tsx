@@ -1,10 +1,10 @@
-import React, { useRef, useState } from 'react'
-import { useAuth } from '../contexts/AuthContext'
-import { Link, useNavigate } from 'react-router-dom'
-import { LockClosedIcon } from '@heroicons/react/20/solid'
-import { ETypes, MessageCard } from './Atoms/MessageCard'
+import { useRef, useState } from 'react'
 import { AiFillExclamationCircle } from 'react-icons/ai'
-import { useToast, EToastTypes } from '../contexts/ToastContext'
+import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../contexts/AuthContext'
+import { EToastTypes, useToast } from '../contexts/ToastContext'
+import Logo from './Atoms/Logo'
+import { ETypes, MessageCard } from './Atoms/MessageCard'
 
 export default function UpdateProfile() {
   const emailRef = useRef<HTMLInputElement>(null)
@@ -51,11 +51,7 @@ export default function UpdateProfile() {
       <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="w-full max-w-md space-y-8">
           <div>
-            <img
-              className="mx-auto h-12 w-auto"
-              src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K"
-              alt="react back-office logo"
-            />
+            <Logo className="mx-auto h-10 text-gray-900" />
             <h1 className="mt-6 text-xl font-bold leading-tight text-center tracking-tight text-gray-900 md:text-2xl dark:text-white">
               Update Profile
             </h1>
