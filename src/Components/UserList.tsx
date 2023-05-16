@@ -29,7 +29,7 @@ export default function UserList() {
     first_name: '',
     last_name: '',
     email: '',
-    avatar: './truphone-logo.png',
+    avatar: './avatar.png',
   })
   const addUserDisabled = !newUser.first_name || !newUser.email
 
@@ -73,7 +73,7 @@ export default function UserList() {
       first_name: '',
       last_name: '',
       email: '',
-      avatar: './truphone-logo.png',
+      avatar: './avatar.png',
     })
     setShowAddUserFields(false)
     showTypedToast(EToastTypes.SUCCESS, 'User created successfully')

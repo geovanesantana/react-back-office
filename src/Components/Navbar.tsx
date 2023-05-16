@@ -1,11 +1,18 @@
 import { Disclosure, Menu } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import {
+  Bars3Icon,
+  XMarkIcon,
+  MoonIcon,
+  SunIcon,
+} from '@heroicons/react/24/outline'
 import { useEffect, useState } from 'react'
 import { FiEdit2, FiLogOut } from 'react-icons/fi'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import { useToast } from '../contexts/ToastContext'
 import DropdownMenu, { IMenuOption } from './Atoms/DropdownMenu'
+import { toggleDarkMode, selectDarkMode } from '../store/darkModeSlice'
+import { useDispatch, useSelector } from 'react-redux'
 import Logo from './Atoms/Logo'
 
 function classNames(...classes: Array<string>) {
@@ -13,8 +20,14 @@ function classNames(...classes: Array<string>) {
 }
 
 export default function Navbar() {
+  const dispatch = useDispatch()
   const { logout } = useAuth()
   const { showError } = useToast()
+  const isDarkMode = useSelector(selectDarkMode)
+
+  const handleDarkModeToggle = () => {
+    dispatch(toggleDarkMode())
+  }
 
   const [navigation, setNavigation] = useState([
     { name: 'Dashboard', href: '/', current: false },
@@ -58,21 +71,17 @@ export default function Navbar() {
   const ProfilePicture = (
     <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-400">
       <span className="sr-only">Open user menu</span>
-      <img
-        className="h-8 w-8 rounded-full"
-        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-        alt=""
-      />
+      <img className="h-8 w-8 rounded-full" src="./avatar.png" alt="" />
     </Menu.Button>
   )
   return (
-    <Disclosure as="nav" className="bg-white shadow-sm">
+    <Disclosure as="nav" className="bg-white dark:bg-gray-800 shadow-sm">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-800  hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-400">
+                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-400 dark:text-white">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
@@ -84,7 +93,7 @@ export default function Navbar() {
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
                   <Link to="/">
-                    <Logo className="h-7 text-gray-900" />
+                    <Logo className="h-7 text-gray-900 dark:text-white" />
                   </Link>
                 </div>
                 <div className="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-8 h-16">
@@ -94,8 +103,8 @@ export default function Navbar() {
                       to={item.href}
                       className={classNames(
                         item.current
-                          ? 'border-slate-500 text-gray-900'
-                          : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300',
+                          ? 'border-slate-500 text-gray-900 dark:text-gray-400'
+                          : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:hover:border-slate-500 dark:hover:text-gray-400',
                         'inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium'
                       )}
                       aria-current={item.current ? 'page' : undefined}
@@ -106,6 +115,14 @@ export default function Navbar() {
                 </div>
               </div>
               <div className="absolute gap-4 inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                <button onClick={handleDarkModeToggle}>
+                  {isDarkMode ? (
+                    <SunIcon className="h-6 w-6 text-white stroke-2" />
+                  ) : (
+                    <MoonIcon className="h-6 w-6 text-gray-700 stroke-2" />
+                  )}
+                </button>
+
                 <DropdownMenu
                   dropDownButtonComponent={ProfilePicture}
                   options={menuOptions}
@@ -123,8 +140,8 @@ export default function Navbar() {
                   href={item.href}
                   className={classNames(
                     item.current
-                      ? 'bg-slate-50 border-slate-500 text-slate-700'
-                      : 'border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800',
+                      ? 'bg-slate-50 border-slate-500 text-slate-700 dark:text-gray-400 dark:bg-gray-700'
+                      : 'border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 dark:hover:border-slate-500 dark:hover:text-gray-400',
                     'block pl-3 pr-4 py-2 border-l-4 text-base font-medium'
                   )}
                   aria-current={item.current ? 'page' : undefined}

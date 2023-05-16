@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .app {
+    @apply transition-colors duration-300 h-full;
+  }
+
+  .app.dark {
+    @apply bg-gray-900;
+  }
+}

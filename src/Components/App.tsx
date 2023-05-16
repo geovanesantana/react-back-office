@@ -8,8 +8,8 @@ import UpdateProfile from './UpdateProfile'
 import StoreProvider from '../contexts/StoreProvider'
 import { ToastProvider } from '../contexts/ToastContext'
 import { ApiProvider } from '../contexts/ApiContext'
-import 'react-toastify/dist/ReactToastify.min.css'
 import AppContextProviders from '../contexts/AppContextProvider'
+import 'react-toastify/dist/ReactToastify.min.css'
 
 function App() {
   const providers = [ToastProvider, AuthProvider, ApiProvider, StoreProvider]
