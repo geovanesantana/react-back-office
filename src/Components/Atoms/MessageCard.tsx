@@ -65,7 +65,6 @@ export function MessageCard(props: IMessageCardProps) {
           </div>
         </div>
         <div className=" flex space-y-1 text-sm flex-col justify-center">
-          {/* <h6 className={`font-medium ${getColor.text900}`}>{props.title}</h6> */}
           <p className={`${getColor.text700} leading-tight`}>{props.message}</p>
         </div>
       </div>

@@ -5,13 +5,15 @@ import Dashboard from './Dashboard'
 import Login from './Login'
 import PrivateRoutes from './PrivateRoutes'
 import UpdateProfile from './UpdateProfile'
+import StoreProvider from '../contexts/StoreProvider'
 import { ToastProvider } from '../contexts/ToastContext'
 import { ApiProvider } from '../contexts/ApiContext'
 import 'react-toastify/dist/ReactToastify.min.css'
 import AppContextProviders from '../contexts/AppContextProvider'
 
 function App() {
-  const providers = [ToastProvider, AuthProvider, ApiProvider]
+  const providers = [ToastProvider, AuthProvider, ApiProvider, StoreProvider]
+
   return (
     <Router>
       <AppContextProviders components={providers}>
