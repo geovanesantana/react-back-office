@@ -1,0 +1,14 @@
+import admin from 'firebase-admin'
+import { defineConfig } from 'cypress'
+import { plugin as cypressFirebasePlugin } from 'cypress-firebase'
+
+export default defineConfig({
+  e2e: {
+    baseUrl: 'http://127.0.0.1:5173',
+    setupNodeEvents(on, config) {
+      return cypressFirebasePlugin(on, config, admin, {
+        projectId: 'react-back-office',
+      })
+    },
+  },
+})

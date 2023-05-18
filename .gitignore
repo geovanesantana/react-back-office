@@ -23,3 +23,10 @@ dist-ssr
 *.sln
 *.sw?
 .env
+
+# testing
+/coverage
+cypress/videos
+cypress/coverage
+cypress.env.json
+serviceAccount.json
