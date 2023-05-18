@@ -1,8 +1,8 @@
 import { useRef, useState } from 'react'
 import { AiFillExclamationCircle } from 'react-icons/ai'
 import { useNavigate } from 'react-router-dom'
-import { useAuth } from '../contexts/AuthContext'
-import { EToastTypes, useToast } from '../contexts/ToastContext'
+import { useAuth } from '@/contexts/AuthContext'
+import { EToastTypes, useToast } from '@/contexts/ToastContext'
 import Logo from './Atoms/Logo'
 import { ETypes, MessageCard } from './Atoms/MessageCard'
 

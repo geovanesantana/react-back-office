@@ -1,6 +1,6 @@
 import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
-import { User, UsersState } from '../types'
+import { User, UsersState } from '@/types'
 
 const initialState: UsersState = {
   data: [],

@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { useAuth } from '../contexts/AuthContext'
+import { useAuth } from '@/contexts/AuthContext'
 import { ETypes, MessageCard } from './Atoms/MessageCard'
 import Logo from './Atoms/Logo'
 

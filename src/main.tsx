@@ -1,8 +1,8 @@
 import React from 'react'
-import App from './components/App'
-import store, { RootState } from './store'
+import App from '@/components/App'
+import store, { RootState } from '@/store'
 import { createRoot } from 'react-dom/client'
-import { selectDarkMode } from './store/darkModeSlice'
+import { selectDarkMode } from '@/store/darkModeSlice'
 import { connect, Provider, useSelector } from 'react-redux'
 import './index.css'
 

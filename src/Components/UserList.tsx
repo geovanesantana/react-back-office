@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { RootState } from '../store/index'
+import { RootState } from '@/store/index'
 import {
   addUser,
   deleteUser,
   fetchUsers,
   updateUserData,
-} from '../store/usersSlice'
-import { User } from '../types'
-import { EToastTypes, useToast } from '../contexts/ToastContext'
+} from '@/store/usersSlice'
+import { User } from '@/types'
+import { EToastTypes, useToast } from '@/contexts/ToastContext'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
 
 const PAGE_SIZE = 6

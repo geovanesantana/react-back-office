@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import axios, { AxiosRequestConfig } from 'axios'
-import { useAuth } from '../contexts/AuthContext'
+import { useAuth } from './AuthContext'
 
 interface IApiProviderProps {
   children: JSX.Element

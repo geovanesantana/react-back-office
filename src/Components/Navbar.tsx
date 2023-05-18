@@ -8,10 +8,10 @@ import {
 import { useEffect, useState } from 'react'
 import { FiEdit2, FiLogOut } from 'react-icons/fi'
 import { Link, useNavigate } from 'react-router-dom'
-import { useAuth } from '../contexts/AuthContext'
-import { useToast } from '../contexts/ToastContext'
+import { useAuth } from '@/contexts/AuthContext'
+import { useToast } from '@/contexts/ToastContext'
 import DropdownMenu, { IMenuOption } from './Atoms/DropdownMenu'
-import { toggleDarkMode, selectDarkMode } from '../store/darkModeSlice'
+import { toggleDarkMode, selectDarkMode } from '@/store/darkModeSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import Logo from './Atoms/Logo'
 
