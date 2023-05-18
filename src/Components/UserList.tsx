@@ -173,7 +173,10 @@ export default function UserList() {
       </div>
 
       <div className="relative overflow-x-auto shadow sm:rounded-lg bg-white ring-1 border-blue-500 ring-gray-200 dark:ring-gray-700 mt-4">
-        <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <table
+          className="w-full text-sm text-left text-gray-500 dark:text-gray-400"
+          data-testid="user-list"
+        >
           <thead className="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" className="px-6 py-3">
@@ -207,6 +210,7 @@ export default function UserList() {
                         <div className="flex text-base font-semibold">
                           <input
                             type="text"
+                            name="firstName"
                             className="mr-2 bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-bg-blue-700 focus:border-bg-blue-700 block min-w-min p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             value={newUser.first_name}
                             onChange={(e) =>
@@ -218,6 +222,7 @@ export default function UserList() {
                           />
                           <input
                             type="text"
+                            name="lastName"
                             className="mr-2 bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-bg-blue-700 focus:border-bg-blue-700 block min-w-min p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             value={newUser.last_name}
                             onChange={(e) =>
@@ -233,6 +238,7 @@ export default function UserList() {
                     <td className="px-6 py-4">
                       <input
                         type="email"
+                        name="email"
                         className="mr-2 bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-bg-blue-700 focus:border-bg-blue-700 block min-w-min p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         value={newUser.email}
                         onChange={(e) =>
@@ -271,6 +277,7 @@ export default function UserList() {
                           {editingUser?.id === user.id ? (
                             <input
                               type="text"
+                              name="firstName"
                               className="mr-2 bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-bg-blue-700 focus:border-bg-blue-700 block min-w-min p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                               value={editingUser.first_name}
                               onChange={(e) =>
@@ -286,6 +293,7 @@ export default function UserList() {
                           {editingUser?.id === user.id ? (
                             <input
                               type="text"
+                              name="lastName"
                               className="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-bg-blue-700 focus:border-bg-blue-700 block min-w-min p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                               value={editingUser.last_name}
                               onChange={(e) =>
@@ -301,10 +309,11 @@ export default function UserList() {
                         </div>
                       </div>
                     </th>
-                    <td className="px-6 py-4">
+                    <td className="px-6 py-4" data-testid="user-email">
                       {editingUser?.id === user.id ? (
                         <input
                           type="text"
+                          name="email"
                           className="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-bg-blue-700 focus:border-bg-blue-700 block min-w-min p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                           value={editingUser.email}
                           onChange={(e) =>

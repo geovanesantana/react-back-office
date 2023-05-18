@@ -69,7 +69,10 @@ export default function Navbar() {
   }
 
   const ProfilePicture = (
-    <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-400">
+    <Menu.Button
+      className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-400"
+      data-testid="menu-profile"
+    >
       <span className="sr-only">Open user menu</span>
       <img className="h-8 w-8 rounded-full" src="./avatar.png" alt="" />
     </Menu.Button>
@@ -115,7 +118,7 @@ export default function Navbar() {
                 </div>
               </div>
               <div className="absolute gap-4 inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <button onClick={handleDarkModeToggle}>
+                <button onClick={handleDarkModeToggle} data-testid="dark-mode">
                   {isDarkMode ? (
                     <SunIcon className="h-6 w-6 text-white stroke-2" />
                   ) : (
